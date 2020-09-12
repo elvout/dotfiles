@@ -15,9 +15,9 @@ alias mpv='mpv --no-audio-display'
 
 ## ls
 if [[ "$os" == "Darwin" ]]; then
-	[[ -x /usr/local/bin/gls ]] && alias ls='gls --color=tty'
+    [[ -x /usr/local/bin/gls ]] && alias ls='gls --color=tty'
 elif [[ "$os" == "Linux" ]]; then
-	alias ls='ls --color=tty'
+    alias ls='ls --color=tty'
 fi
 alias l='ls -alhF'
 alias ll='ls -lhF'
@@ -31,10 +31,10 @@ alias nohist='export HISTFILE=/dev/null'
 
 ## make various things interactive
 if [[ "$os" == "Darwin" ]]; then
-	# use APFS copy-on-write
-	alias cp='cp -aic'
+    # use APFS copy-on-write
+    alias cp='cp -aic'
 else
-	alias cp='cp -ai'
+    alias cp='cp -ai'
 fi
 alias ln='ln -i'
 alias mv='mv -i'
@@ -43,14 +43,14 @@ alias mv='mv -i'
 # some os-specific settings
 
 if [[ "$os" == "Darwin" ]]; then
-	alias brwe='brew'
-	[[ -x /usr/local/bin/colordiff ]] && alias diff='colordiff'
-	alias ext4fuse='sudo ext4fuse -o allow_other'
-	[[ -x /usr/local/bin/trash ]] && alias rm='trash'
+    alias brwe='brew'
+    [[ -x /usr/local/bin/colordiff ]] && alias diff='colordiff'
+    alias ext4fuse='sudo ext4fuse -o allow_other'
+    [[ -x /usr/local/bin/trash ]] && alias rm='trash'
 fi
 
 if [[ "$os" == "Linux" ]]; then
-	[[ -x /usr/bin/batcat ]] && alias bat='batcat'
-	alias open='xdg-open'
+    [[ -x /usr/bin/batcat ]] && alias bat='batcat'
+    alias open='xdg-open'
 fi
 

@@ -18,11 +18,11 @@ PATH=~/Applications/bin:~/bin:~/.local/bin:~/.cargo/bin:$PATH
 
 # set bash-specific settings
 if [[ "$(echo $SHELL)" =~ .*/bash ]]; then
-	export PS1="\[\033[33m\]\u\[\033[32m\]@\[\033[32m\]\h:\[\033[34m\]\w\[\033[34m\]\$ \[\033[m\]"
-	# export LSCOLORS=ExFxBxDxCxegedabagacad
+    export PS1="\[\033[33m\]\u\[\033[32m\]@\[\033[32m\]\h:\[\033[34m\]\w\[\033[34m\]\$ \[\033[m\]"
+    # export LSCOLORS=ExFxBxDxCxegedabagacad
 
-	shopt -s dotglob
-	shopt -s expand_aliases
+    shopt -s dotglob
+    shopt -s expand_aliases
 fi
 
 
@@ -32,13 +32,13 @@ tabs -4
 
 # brew bash completions on macos
 if [[ "$os" == "Darwin" ]] && [[ "$(echo $SHELL)" =~ .*/bash ]]; then
-	if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
-		source "/usr/local/etc/profile.d/bash_completion.sh"
-	fi
+    if [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then
+        source "/usr/local/etc/profile.d/bash_completion.sh"
+    fi
 
-	if [[ -d /usr/local/etc/bash_completion.d ]]; then
-		for file in /usr/local/etc/bash_completion.d/*; do
-			source "$file"
-		done
-	fi
+    if [[ -d /usr/local/etc/bash_completion.d ]]; then
+        for file in /usr/local/etc/bash_completion.d/*; do
+            source "$file"
+        done
+    fi
 fi
