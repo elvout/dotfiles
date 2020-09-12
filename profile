@@ -42,3 +42,5 @@ if [[ "$os" == "Darwin" ]] && [[ "$(echo $SHELL)" =~ .*/bash ]]; then
         done
     fi
 fi
+
+source "dotfiles/aliases"
