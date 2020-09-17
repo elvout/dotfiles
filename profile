@@ -13,8 +13,10 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 PATH=~/Applications/bin:~/bin:~/.local/bin:~/.cargo/bin:$PATH
 
-[[ "$utlab" == true ]] && PATH=/u/gheith/public/qemu_5.1.0/bin:$PATH
-
+if [[ "$utlab" == true ]]; then
+    PATH=/u/gheith/public/qemu_5.1.0/bin:$PATH
+    export PERL5LIB=~/Applications/rename/share/perl:$PERL5LIB
+fi
 
 # set bash-specific settings
 if [[ "$(echo $SHELL)" =~ .*/bash ]]; then
