@@ -45,4 +45,8 @@ if [[ "$os" == "Darwin" ]] && [[ "$(echo $SHELL)" =~ .*/bash ]]; then
     fi
 fi
 
+if [[ "$LC_TERMINAL" == "iTerm2" ]]; then
+    tput smam
+fi
+
 source "$HOME/dotfiles/aliases"
