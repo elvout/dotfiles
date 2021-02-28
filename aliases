@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 
 os="$(uname -s)"
-
+utlab=false
+[[ -x /usr/local/bin/cshosts ]] && utlab=true
 
 # global
 alias ..='cd ..'
@@ -11,7 +12,6 @@ alias e='printf "\e[2J\e[3J\e[1;1H"'
 [[ -x /usr/local/bin/gdu ]] && alias du='gdu'
 alias sizeof='du -s --apparent-size --si'
 alias mpv='mpv --no-audio-display'
-
 
 ## ls
 if [[ "$os" == "Darwin" ]]; then
@@ -40,13 +40,16 @@ alias ln='ln -i'
 alias mv='mv -i'
 
 
+alias rsync="rsync --filter=':- .gitignore'"
+
 # some os-specific settings
 
 if [[ "$os" == "Darwin" ]]; then
     alias brwe='brew'
     [[ -x /usr/local/bin/colordiff ]] && alias diff='colordiff'
     alias ext4fuse='sudo ext4fuse -o allow_other'
-    [[ -x /usr/local/bin/trash ]] && alias rm='trash'
+    alias sshfs='sudo sshfs -o allow_other,default_permissions,uid=501,gid=20'
+    [[ -x /usr/local/bin/gstat ]] && alias stat='gstat'
 fi
 
 if [[ "$os" == "Linux" ]]; then
@@ -54,3 +57,17 @@ if [[ "$os" == "Linux" ]]; then
     alias open='xdg-open'
 fi
 
+# copy some aliases from zsh git completions to bash
+if [[ "$(echo $SHELL)" =~ .*/bash ]]; then
+    alias gst='git status'
+    alias ga='git add'
+    alias gd='git diff'
+    alias gds='git diff --staged'
+    alias gc='git commit -v'
+    alias gf='git fetch'
+    alias gl='git pull'
+    alias gp='git push'
+    alias glog='git log --oneline --decorate --graph'
+    alias gloga='git log --oneline --decorate --graph --all'
+    alias gsw='git switch'
+fi
