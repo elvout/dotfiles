@@ -57,10 +57,8 @@ fi
 # ROS settings for CS 393R
 if [[ -d /opt/ros/noetic ]]; then
     source /opt/ros/noetic/setup."$(basename $SHELL)"
-    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/ut_automata
+    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/ut-amrl
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/Documents/cs393r
-    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/amrl_maps
-    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/amrl_msgs
 fi
 
 source "$HOME/dotfiles/aliases"
