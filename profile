@@ -16,6 +16,8 @@ PATH=~/Applications/bin:~/bin:~/.local/bin:~/.cargo/bin:$PATH
 
 if [[ "$utlab" == true ]]; then
     export PERL5LIB=~/Applications/rename/share/perl:$PERL5LIB
+    export JAVA_HOME="$HOME/opt/jdk-17.0.2"
+    export PATH="$JAVA_HOME/bin:$PATH"
 fi
 
 # set bash-specific settings
