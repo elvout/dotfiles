@@ -15,6 +15,7 @@ alias mpv='mpv --no-audio-display'
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 alias rsync="rsync --filter=':- .gitignore'"
+alias z="SHELL=zsh exec zsh -l"
 
 ## ls
 if [[ "$os" == "Darwin" ]]; then
