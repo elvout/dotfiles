@@ -63,4 +63,12 @@ if [[ -d /opt/ros/noetic ]]; then
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/Documents/cs393r
 fi
 
+# Limit CPU usage (spawned threads)
+if [[ -e /etc/machine-id && \
+      -x /usr/bin/openssl && \
+      "$(hostname | openssl dgst -sha256 -hmac "$(sha256sum /etc/machine-id)")" == \
+      "(stdin)= c75a32c4ca8932180532cdf56efdf06b5d57e924c1e9b2d31764e88837afcb62" ]]; then
+    export OMP_NUM_THREADS=3
+fi
+
 source "$HOME/dotfiles/aliases"
