@@ -56,8 +56,11 @@ if [[ "$LC_TERMINAL" == "iTerm2" ]]; then
     tput smam
 fi
 
-# ROS settings for CS 393R
-if [[ -d /opt/ros/noetic ]]; then
+# ROS settings
+if [[ -e /.rosrc ]]; then
+    source /.rosrc
+elif [[ -d /opt/ros/noetic ]]; then
+    # for CS393R
     source /opt/ros/noetic/setup."$(basename $SHELL)"
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/ut-amrl
     export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/Documents/cs393r
