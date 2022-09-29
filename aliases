@@ -23,8 +23,8 @@ if [[ "$os" == "Darwin" ]]; then
 elif [[ "$os" == "Linux" ]]; then
     alias ls='ls --color=tty'
 fi
-alias l='ls -alhF'
-alias ll='ls -lhF'
+alias l='ls -lhF'
+alias ll='ls -alhF'
 alias lsa='ls -alhF'
 alias lst='ls -trlhF'
 
