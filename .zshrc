@@ -1,8 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-source "$HOME"/dotfiles/profile
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -108,3 +106,5 @@ export LANG=en_US.UTF-8
 
 # for some reason gstat doesn't tab-complete files by default
 compdef _gnu_generic gstat
+
+source "$HOME"/dotfiles/profile
