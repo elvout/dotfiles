@@ -32,6 +32,7 @@ alias lst='ls -trlhF'
 
 ## don't save history on exit
 alias nohist='export HISTFILE=/dev/null'
+alias n="nohist"
 
 
 ## make various things interactive
