@@ -16,6 +16,7 @@ alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 alias rsync="rsync -ah --info=progress2 --stats --filter=':- .gitignore'"
 alias z="SHELL=zsh exec zsh -l"
+alias make="make -j$(nproc)"
 
 ## ls
 if [[ "$os" == "Darwin" ]]; then
