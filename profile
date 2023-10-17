@@ -69,6 +69,7 @@ elif [[ -d /opt/ros/noetic ]]; then
         source $HOME/stretch_ws/devel/setup.zsh
     fi
 
+    # Set ROS IP stuff
     if [[ "$SHELL" == *bash ]]; then
         PROMPT_COMMAND="source $HOME/dotfiles/ros1env.sh"
     elif [[ "$SHELL" == *zsh ]]; then
@@ -76,12 +77,6 @@ elif [[ -d /opt/ros/noetic ]]; then
             source "$HOME/dotfiles/ros1env.sh"
         }
     fi
-
-    export ROS_MASTER_URI="http://localhost:11311"
-    export ROS_IP="127.0.0.1"
-
-    # export ROS_MASTER_URI="http://35.3.159.248:11311"
-    # export ROS_IP="35.3.76.207"
 
     alias cb="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release -Wno-dev --"
 elif [[ -d /opt/ros/humble ]]; then
