@@ -56,10 +56,8 @@ if [[ "$LC_TERMINAL" == "iTerm2" ]]; then
     tput smam
 fi
 
-if [ "$SHELL" = "" ]; then
-    [ "$BASH" != "" ] && export SHELL=/usr/bin/bash
-    [ "$ZSH_NAME" != "" ] && export SHELL=/usr/bin/zsh
-fi
+[[ "$BASH_VERSION" != "" ]] && export SHELL=/usr/bin/bash
+[[ "$ZSH_VERSION" != "" ]] && export SHELL=/usr/bin/zsh
 
 # ROS settings
 if [[ -e /.dockerenv ]] && [[ -s /.dockerenv ]]; then
@@ -69,6 +67,14 @@ elif [[ -d /opt/ros/noetic ]]; then
 
     if [[ -f $HOME/stretch_ws/devel/setup.sh ]]; then
         source $HOME/stretch_ws/devel/setup.zsh
+    fi
+
+    if [[ "$SHELL" == *bash ]]; then
+        PROMPT_COMMAND="source $HOME/dotfiles/ros1env.sh"
+    elif [[ "$SHELL" == *zsh ]]; then
+        preexec() {
+            source "$HOME/dotfiles/ros1env.sh"
+        }
     fi
 
     export ROS_MASTER_URI="http://localhost:11311"
