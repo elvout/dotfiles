@@ -56,13 +56,31 @@ if [[ "$LC_TERMINAL" == "iTerm2" ]]; then
     tput smam
 fi
 
-if [[ -e /.dockerenv ]]; then
-    source /.dockerenv
+if [ "$SHELL" = "" ]; then
+    [ "$BASH" != "" ] && export SHELL=/usr/bin/bash
+    [ "$ZSH_NAME" != "" ] && export SHELL=/usr/bin/zsh
 fi
 
 # ROS settings
-if [[ -d /opt/ros/noetic ]]; then
+if [[ -e /.dockerenv ]] && [[ -s /.dockerenv ]]; then
+    source /.dockerenv
+elif [[ -d /opt/ros/noetic ]]; then
     source /opt/ros/noetic/setup."$(basename $SHELL)"
+
+    if [[ -f $HOME/stretch_ws/devel/setup.sh ]]; then
+        source $HOME/stretch_ws/devel/setup.zsh
+    fi
+
+    export ROS_MASTER_URI="http://localhost:11311"
+    export ROS_IP="127.0.0.1"
+
+    # export ROS_MASTER_URI="http://35.3.159.248:11311"
+    # export ROS_IP="35.3.76.207"
+
+    alias cb="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release -Wno-dev --"
+elif [[ -d /opt/ros/humble ]]; then
+    source /opt/ros/humble/setup.sh
+    # source /opt/ros/humble/setup."$(basename $SHELL)"
 fi
 
 # Limit CPU usage (spawned threads)
