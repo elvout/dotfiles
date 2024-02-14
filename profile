@@ -82,6 +82,12 @@ elif [[ -d /opt/ros/noetic ]]; then
 elif [[ -d /opt/ros/humble ]]; then
     source /opt/ros/humble/setup.sh
     # source /opt/ros/humble/setup."$(basename $SHELL)"
+
+    if [[ "$SHELL" == *zsh ]]; then
+        preexec() {
+            source "$HOME/dotfiles/ros2env.sh"
+        }
+    fi
 fi
 
 # Limit CPU usage (spawned threads)
