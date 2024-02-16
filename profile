@@ -80,10 +80,20 @@ elif [[ -d /opt/ros/noetic ]]; then
 
     alias cb="catkin build --cmake-args -DCMAKE_BUILD_TYPE=Release -Wno-dev --"
 elif [[ -d /opt/ros/humble ]]; then
-    source /opt/ros/humble/setup.sh
-    # source /opt/ros/humble/setup."$(basename $SHELL)"
+    # On zsh, sourcing setup.zsh is a lot slower than setup.sh, but is required
+    # for shell completions.
+    source /opt/ros/humble/setup."$(basename $SHELL)"
 
     if [[ "$SHELL" == *zsh ]]; then
+        # Shell completions for zsh are broken on Humble, requiring this
+        # workaround.
+        # https://github.com/ros2/ros2cli/issues/534#issuecomment-958010930
+        #
+        # The fix might be present in a future release.
+        # https://github.com/ros2/ros2cli/pull/750.
+        complete -o nospace -o default -F _python_argcomplete "ros2"
+        complete -o nospace -o default -F _python_argcomplete "colcon"
+
         preexec() {
             source "$HOME/dotfiles/ros2env.sh"
         }
