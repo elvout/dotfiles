@@ -72,3 +72,5 @@ if [[ "$(echo $SHELL)" =~ .*/bash ]]; then
     alias gloga='git log --oneline --decorate --graph --all'
     alias gsw='git switch'
 fi
+alias wglog="watch --color --interval 1 git log --color=always --oneline --decorate --graph"
+alias wgloga="watch --color --interval 1 git log --color=always --oneline --decorate --graph --all"
