@@ -85,7 +85,7 @@ elif [[ -d /opt/ros/humble ]]; then
     source /opt/ros/humble/setup."$(basename $SHELL)"
 
     if [[ "$SHELL" == *zsh ]]; then
-        preexec() {
+        precmd() {
             source "$HOME/dotfiles/ros2env.sh"
         }
     fi
