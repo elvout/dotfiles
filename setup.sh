@@ -35,7 +35,9 @@ if ! command -v cargo &> /dev/null; then
         sudo apt install --yes make musl-tools
         ~/.cargo/bin/rustup target add x86_64-unknown-linux-musl
 
-        ~/.cargo/bin/cargo install --target x86_64-unknown-linux-musl bat dua-cli fd-find git-delta
+        ~/.cargo/bin/cargo install \
+            --target x86_64-unknown-linux-musl \
+            bat dua-cli fd-find git-delta hyperfine
     fi
 
 fi
