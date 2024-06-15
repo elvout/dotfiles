@@ -56,6 +56,12 @@ if [[ "$LC_TERMINAL" == "iTerm2" ]]; then
     tput smam
 fi
 
+
+# Compression settings
+export ZSTD_NBTHREADS="$(nproc)"
+export XZ_DEFAULTS="-T0 -v"
+
+
 [[ "$BASH_VERSION" != "" ]] && export SHELL=/usr/bin/bash
 [[ "$ZSH_VERSION" != "" ]] && export SHELL=/usr/bin/zsh
 
