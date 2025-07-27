@@ -3,17 +3,12 @@
 os="$(uname -s)"
 
 # set path based on env
+export PATH=~/.local/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-
-[[ "$os" == "Darwin" ]] && PATH=/Library/TeX/texbin:$PATH
-
-PATH=/usr/local/go/bin:~/go/bin:$PATH
-PATH=~/Applications/bin:~/bin:~/.local/bin:~/.cargo/bin:$PATH
-
-if [[ -d /usr/local/cuda/bin ]]; then
-    PATH=/usr/local/cuda/bin:$PATH
-fi
+[[ -d /Library/TeX/texbin ]] && PATH=/Library/TeX/texbin:$PATH
+[[ -d /usr/local/go/bin ]] && PATH=/usr/local/go/bin:~/go/bin:$PATH
+[[ -d ~/.cargo/bin ]] && PATH=~/.cargo/bin:$PATH
+[[ -d /usr/local/cuda/bin ]] && PATH=/usr/local/cuda/bin:$PATH
 
 
 # set bash-specific settings
