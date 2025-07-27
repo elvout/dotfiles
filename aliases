@@ -1,8 +1,6 @@
 #! /usr/bin/env bash
 
 os="$(uname -s)"
-utlab=false
-[[ -x /usr/local/bin/cshosts ]] && utlab=true
 
 # global
 alias ..='cd ..'
@@ -30,8 +28,7 @@ alias lst='ls -trlhF'
 
 # https://github.com/sharkdp/fd/issues/1295
 ff() {
-    fd "$@" -X ls -1dp --hyperlink
-    # fd --color=always "$@" -X "$HOME/dotfiles/turn_filenames_into_hyperlinks.py"
+    fd "$@" -X ls -1 --directory --indicator-style=slash --hyperlink
 }
 
 ## don't save history on exit
