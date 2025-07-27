@@ -7,6 +7,7 @@ export LANG=en_US.UTF-8
 # set path based on env
 export PATH=~/.local/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
+[[ -d /opt/homebrew/bin ]] && PATH=/opt/homebrew/bin:$PATH
 [[ -d /Library/TeX/texbin ]] && PATH=/Library/TeX/texbin:$PATH
 [[ -d /usr/local/go/bin ]] && PATH=/usr/local/go/bin:~/go/bin:$PATH
 [[ -d ~/.cargo/bin ]] && PATH=~/.cargo/bin:$PATH
