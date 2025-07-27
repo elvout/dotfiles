@@ -105,4 +105,6 @@ if [[ -e /etc/machine-id && \
     export OMP_NUM_THREADS=3
 fi
 
+[[ -f "$HOME/dotfiles/secrets" ]] && source "$HOME/dotfiles/secrets"
+
 source "$HOME/dotfiles/aliases"
