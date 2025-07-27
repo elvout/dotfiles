@@ -14,6 +14,10 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 PATH=/usr/local/go/bin:~/go/bin:$PATH
 PATH=~/Applications/bin:~/bin:~/.local/bin:~/.cargo/bin:$PATH
 
+if [[ -d /usr/local/cuda/bin ]]; then
+    PATH=/usr/local/cuda/bin:$PATH
+fi
+
 if [[ "$utlab" == true ]]; then
     export PERL5LIB=~/Applications/rename/share/perl:$PERL5LIB
     export JAVA_HOME="$HOME/opt/jdk-17.0.2"
