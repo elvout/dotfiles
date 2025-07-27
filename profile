@@ -15,7 +15,7 @@ export PATH=~/.local/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin
 
 
 # set bash-specific settings
-if [[ "$(echo $SHELL)" =~ .*/bash ]]; then
+if [[ "$SHELL" == *bash ]]; then
     export PS1="\[\033[33m\]\u\[\033[32m\]@\[\033[32m\]\h:\[\033[34m\]\w\[\033[34m\]\$ \[\033[m\]"
     # export LSCOLORS=ExFxBxDxCxegedabagacad
 
@@ -39,9 +39,6 @@ fi
 export ZSTD_NBTHREADS="$(nproc)"
 export XZ_DEFAULTS="-T0 -v"
 
-
-[[ "$BASH_VERSION" != "" ]] && export SHELL=/usr/bin/bash
-[[ "$ZSH_VERSION" != "" ]] && export SHELL=/usr/bin/zsh
 
 # ROS settings
 if [[ -e /.dockerenv ]] && [[ -s /.dockerenv ]]; then
