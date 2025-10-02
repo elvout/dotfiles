@@ -70,6 +70,24 @@ elif [[ -d /opt/ros/humble ]]; then
             source "$HOME/dotfiles/ros2env.sh"
         }
     fi
+elif [[ -d /opt/ros/jazzy ]]; then
+    export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+    if [[ -e $HOME/.cyclonedds.xml ]]; then
+        export CYCLONEDDS_URI="file://$HOME/.cyclonedds.xml"
+    fi
+
+    if [[ -e "$HOME/ros2_workspace/install/setup.sh" ]]; then
+        source $HOME/ros2_workspace/install/setup."$(basename $SHELL)"
+    else
+        source /opt/ros/jazzy/setup."$(basename $SHELL)"
+    fi
+
+    if [[ "$SHELL" == *zsh ]]; then
+        precmd() {
+            source "$HOME/dotfiles/ros2env.sh"
+        }
+    fi
 fi
 
 
