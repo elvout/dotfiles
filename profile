@@ -2,6 +2,8 @@
 
 os="$(uname -s)"
 
+export LANG=en_US.UTF-8
+
 # set path based on env
 export PATH=~/.local/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
