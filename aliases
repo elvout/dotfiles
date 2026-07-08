@@ -20,9 +20,11 @@ alias intelwatt="sudo intel_gpu_top -J | grep -o -P '(?<=Package\": )\d+\.\d'"
 
 ## ls
 if [[ "$os" == "Darwin" ]]; then
-    [[ -x /usr/local/bin/gls ]] && alias ls='gls --color=tty'
+    [[ -x /usr/local/bin/gls ]] && alias ls='gls --color=auto'
+    [[ -x /opt/homebrew/bin/gls ]] && alias ls='gls --color=auto'
+else
+    alias ls='ls --color=auto'
 fi
-alias ls='ls --color=auto'
 alias l='ls -lhF'
 alias ll='ls -alhF'
 alias lsa='ls -alhF'

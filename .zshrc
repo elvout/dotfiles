@@ -32,7 +32,7 @@ setopt longlistjobs
 setopt noflowcontrol
 
 # Completions
-if [[ "$os" == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
     source $HOME/dotfiles/ls_colors
 fi
 setopt completeinword
