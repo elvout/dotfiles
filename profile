@@ -39,6 +39,8 @@ fi
 export ZSTD_NBTHREADS="$(nproc)"
 export XZ_DEFAULTS="-T0 -v"
 
+[[ -n "$BASH_VERSION" ]] && export SHELL="$(which bash)"
+[[ -n "$ZSH_VERSION" ]] && export SHELL="$(which zsh)"
 
 # ROS settings
 if [[ -e /.dockerenv ]] && [[ -s /.dockerenv ]]; then
