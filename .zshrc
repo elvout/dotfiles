@@ -1,5 +1,3 @@
-source "$HOME/dotfiles/profile"
-
 export GITSTATUS_NUM_THREADS=2
 source "$HOME/.local/share/zsh/powerlevel10k/powerlevel10k.zsh-theme"
 [[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
@@ -34,6 +32,9 @@ setopt longlistjobs
 setopt noflowcontrol
 
 # Completions
+if [[ "$os" == "Darwin" ]]; then
+    source $HOME/dotfiles/ls_colors
+fi
 setopt completeinword
 zmodload -i zsh/complist
 WORDCHARS=''
@@ -47,5 +48,7 @@ zstyle ':completion:*' matcher-list \
 
 autoload -Uz compinit
 compinit -d "$HOME/.zcompdump"
+
+source "$HOME/dotfiles/profile"
 
 source "$HOME/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
