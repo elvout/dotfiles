@@ -16,6 +16,7 @@ alias rsync="rsync -ah --info=progress2 --stats --filter=':- .gitignore'"
 alias z="SHELL=zsh exec zsh -l"
 alias make="make -j$(nproc)"
 alias dua="dua --format metric"
+alias intelwatt="sudo intel_gpu_top -J | grep -o -P '(?<=Package\": )\d+\.\d'"
 
 ## ls
 if [[ "$os" == "Darwin" ]]; then
