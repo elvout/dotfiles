@@ -83,6 +83,9 @@ elif [[ -d /opt/ros/jazzy ]]; then
         source /opt/ros/jazzy/setup."$(basename $SHELL)"
     fi
 
+    eval "$(register-python-argcomplete ros2)"
+    eval "$(register-python-argcomplete colcon)"
+
     if [[ "$SHELL" == *zsh ]]; then
         precmd() {
             source "$HOME/dotfiles/ros2env.sh"
