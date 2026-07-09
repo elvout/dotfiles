@@ -57,7 +57,9 @@ elif [[ -d /opt/ros/noetic ]]; then
 elif [[ -d /opt/ros/humble ]]; then
     # On zsh, sourcing setup.zsh is a lot slower than setup.sh, but is required
     # for shell completions.
-    source /opt/ros/humble/setup."$(basename $SHELL)"
+    if [[ -f /opt/ros/jazzy/setup.sh && -z "${AMENT_PREFIX_PATH:-}" ]]; then
+        source /opt/ros/humble/setup."$(basename $SHELL)"
+    fi
 
     if [[ "$SHELL" == *zsh ]]; then
         precmd() {
@@ -71,10 +73,8 @@ elif [[ -d /opt/ros/jazzy ]]; then
         export CYCLONEDDS_URI="file://$HOME/.cyclonedds.xml"
     fi
 
-    if [[ -e "$HOME/ros2_workspace/install/setup.sh" ]]; then
-        source $HOME/ros2_workspace/install/setup."$(basename $SHELL)"
-    else
-        source /opt/ros/jazzy/setup."$(basename $SHELL)"
+    if [[ -f /opt/ros/jazzy/setup.sh && -z "${AMENT_PREFIX_PATH:-}" ]]; then
+        source "/opt/ros/jazzy/setup.$(basename $SHELL)"
     fi
 
     eval "$(register-python-argcomplete ros2)"
