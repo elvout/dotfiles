@@ -2,15 +2,22 @@
 
 export LANG=en_US.UTF-8
 
-# set path based on env
-export PATH=~/.local/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+prepend_path() {
+    [[ -d "$1" ]] || return
 
-[[ -d /opt/homebrew/bin ]] && PATH=/opt/homebrew/bin:$PATH
-[[ -d /Library/TeX/texbin ]] && PATH=/Library/TeX/texbin:$PATH
-[[ -d /usr/local/go/bin ]] && PATH=/usr/local/go/bin:~/go/bin:$PATH
-[[ -d ~/.cargo/bin ]] && PATH=~/.cargo/bin:$PATH
-[[ -d /usr/local/cuda/bin ]] && PATH=/usr/local/cuda/bin:$PATH
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+    esac
+}
 
+prepend_path /opt/homebrew/bin
+prepend_path /Library/TeX/texbin
+prepend_path /usr/local/cuda/bin
+prepend_path "$HOME/.cargo/bin"
+prepend_path "$HOME/.local/bin"
+
+export PATH
 
 # set bash-specific settings
 if [[ "$SHELL" == *bash ]]; then
