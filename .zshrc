@@ -32,9 +32,7 @@ setopt longlistjobs
 setopt noflowcontrol
 
 # Completions
-if [[ "$(uname -s)" == "Darwin" ]]; then
-    source $HOME/dotfiles/ls_colors
-fi
+source $HOME/dotfiles/ls_colors
 setopt completeinword
 zmodload -i zsh/complist
 WORDCHARS=''

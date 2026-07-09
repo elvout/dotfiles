@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
 
-os="$(uname -s)"
-
 export LANG=en_US.UTF-8
 
 # set path based on env
@@ -27,12 +25,6 @@ export HISTCONTROL=ignoreboth
 
 # set tabs to 4
 tabs -4
-
-
-# macOS specific settings
-if [[ "$os" == "Darwin" ]]; then
-    source $HOME/dotfiles/ls_colors
-fi
 
 
 # Compression settings
