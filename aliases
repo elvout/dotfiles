@@ -30,6 +30,8 @@ alias ll='ls -alhF'
 alias lsa='ls -alhF'
 alias lst='ls -trlhF'
 
+alias grep='grep --color=auto'
+
 # https://github.com/sharkdp/fd/issues/1295
 ff() {
     fd "$@" -X ls -1 --directory --indicator-style=slash --hyperlink
