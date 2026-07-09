@@ -46,6 +46,7 @@ zstyle ':completion:*' matcher-list \
 
 autoload -Uz compinit
 compinit -d "$HOME/.zcompdump"
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 source "$HOME/dotfiles/profile"
 
