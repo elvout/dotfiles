@@ -48,6 +48,10 @@ rm -f $HOME/.zshrc && ln -rs .zshrc $HOME/.zshrc
 rm -f $HOME/.p10k.zsh && ln -rs .p10k.zsh $HOME/.p10k.zsh
 rm -f $HOME/.tmux.conf && ln -rs .tmux.conf $HOME/.tmux.conf
 rm -f $HOME/.vimrc && ln -rs .vimrc $HOME/.vimrc
+if [[ ! -f $HOME/.config/htop/htoprc ]]; then
+    mkdir -p $HOME/.config/htop
+    ln -s "$(realpath .config/htop/htoprc)" $HOME/.config/htop/htoprc
+fi
 
 if [[ "$SHELL" != */zsh ]]; then
     echo run chsh -s /bin/zsh "$(whoami)"
