@@ -8,11 +8,13 @@
 - When a request is broad or ambiguous, ask pointed clarifying questions instead of covering every possibility.
 - Omit invalid answers and options instead of presenting them and explaining why they do not make sense.
 - When asked for items satisfying a condition, do not enumerate cases that fail the condition unless they are necessary to explain the answer.
+- Do not recommend settings that are present in default behavior. Mention them only when setting them explicitly is necessary, such as when defaults differ across versions.
+- When I end a message with "nrn", carry out any requested action but do not respond unless clarification is required.
 
 ## Code Style
 
 - Avoid single-use helper functions for simple expressions, constants, or thin wrappers. Inline them unless a dedicated function materially improves readability or reduces duplication.
-- Avoid overly defensive checks. Prefer reasonable assumptions, but note where validation may be necessary.
+- Avoid overly defensive checks. Make reasonable assumptions, but note where validation may be absolutely necessary. In particular, assume numeric inputs and configuration values are finite and within expected ranges unless the task explicitly concerns input validation or non-finite values.
 - Preserve existing project patterns over introducing new abstractions.
 - Python: Use top-level imports.
 - Python: Use type annotations.
