@@ -60,6 +60,10 @@ if [[ "$os" == "Darwin" ]]; then
     alias ext4fuse='sudo ext4fuse -o allow_other'
     alias sshfs='sudo sshfs -o allow_other,default_permissions,uid=501,gid=20'
     [[ -x /usr/local/bin/gstat ]] && alias stat='gstat'
+
+    code() {
+        open -a "Visual Studio Code" "$@"
+    }
 fi
 
 # copy some aliases from zsh git completions to bash
