@@ -49,6 +49,9 @@ compinit -d "$HOME/.zcompdump"
 bindkey '^[[Z' reverse-menu-complete
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 source "$HOME/dotfiles/profile"
 
 source "$HOME/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
