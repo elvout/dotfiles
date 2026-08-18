@@ -18,6 +18,24 @@ alias make="make -j$(nproc)"
 alias dua="dua --format metric"
 alias intelwatt="sudo intel_gpu_top -J | grep -o -P '(?<=Package\": )\d+\.\d'"
 
+update() {
+    if [[ "$os" == "Linux" ]]; then
+        sudo apt update
+        apt list --upgradable
+    elif [[ "$os" == "Darwin" ]]; then
+        brew update
+        brew outdated
+    fi
+}
+
+upgrade() {
+    if [[ "$os" == "Linux" ]]; then
+        sudo apt upgrade
+    elif [[ "$os" == "Darwin" ]]; then
+        brew upgrade
+    fi
+}
+
 ## ls
 if [[ "$os" == "Darwin" ]]; then
     [[ -x /usr/local/bin/gls ]] && alias ls='gls --color=auto'
