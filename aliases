@@ -20,7 +20,7 @@ alias intelwatt="sudo intel_gpu_top -J | grep -o -P '(?<=Package\": )\d+\.\d'"
 
 update() {
     if [[ "$os" == "Linux" ]]; then
-        sudo apt update
+        (set -x; sudo apt update)
         apt list --upgradable
     elif [[ "$os" == "Darwin" ]]; then
         brew update
@@ -30,7 +30,7 @@ update() {
 
 upgrade() {
     if [[ "$os" == "Linux" ]]; then
-        sudo apt upgrade
+        (set -x; sudo apt upgrade)
     elif [[ "$os" == "Darwin" ]]; then
         brew upgrade
     fi
