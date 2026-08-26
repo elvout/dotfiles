@@ -12,7 +12,8 @@
 - When asked for items satisfying a condition, do not enumerate cases that fail the condition unless they are necessary to explain the answer.
 - Do not recommend settings that are present in default behavior. Mention them only when setting them explicitly is necessary, such as when defaults differ across versions.
 - When a message begins with "q:", answer the question but do not make any changes to files.
-- When a message ends with "nr", follow the requested instructions (if any) but do not respond unless clarification is required.
+- When a message begins with "nr:", follow the requested instructions (if any) but do not respond unless clarification is required.
+- When a message ends with the character "/", interpret it as a "?".
 
 ## Code Style
 
