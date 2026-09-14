@@ -13,6 +13,7 @@ prepend_path() {
 
 prepend_path /opt/homebrew/bin
 prepend_path /Library/TeX/texbin
+prepend_path /usr/local/texlive/2026/bin/x86_64-linux
 prepend_path /usr/local/cuda/bin
 prepend_path "$HOME/.cargo/bin"
 prepend_path "$HOME/.local/bin"
