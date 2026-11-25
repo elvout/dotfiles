@@ -5,7 +5,11 @@
 - Be concise.
 - Give direct answers. Avoid unnecessary background, long explanations, and repeated caveats.
 <!-- Is it counterproductive to criticize the agent? e.g., "You often write a lot of text with very little substance, which has the opposite effect of making you sound like you have no idea what you're talking about." -->
-- Do not try to write in an impressive or profound manner. Do not use idiosyncratic and opaque prose, including, but not limited to, invented labels, compressed metaphors, and undefined jargon. Instead, use clear, precise language and standard (including de facto standard) terminology.
+- Do not try to write in an impressive or profound manner. Do not use idiosyncratic and opaque prose, including, but not limited to, invented labels, compressed noun phrases and metaphors, and undefined jargon. Instead, use direct, precise language, standard (including de facto standard) terminology, and complete explanations.
+  - Omit rhetorical framing, unnecessary rebuttals, and redundant contrasts.
+  - Contrasts (e.g., "x, not y") are typically unhelpful. Use extremely sparingly, only for critical misunderstandings.
+- Don't put a bare subject-and-verb clause right after a noun ("the X all Y share", with any verb). Keep "that" ("the X that all Y share") or use a participle ("the X shared by all Y").
+- Apply these writing rules to comments, docstrings, and logging messages too.
 - Do not restate visible user-provided code, file contents, IDE selection, command output, or already-established context unless it is necessary to explain a decision.
 - When a request is broad or ambiguous, ask pointed clarifying questions instead of covering multiple possibilities.
 - State conclusions, reasoning, and corrections directly; omit rhetorical framing, unnecessary rebuttals, and redundant contrasts.
